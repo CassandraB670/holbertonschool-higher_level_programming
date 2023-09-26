@@ -1,3 +1,5 @@
 #!/usr/bin/python3
+alphabet = ""
 for index in range(97, 123):
-    print(chr(index), end="")
+    alphabet += chr(index)
+print("{}".format(alphabet), end="")
