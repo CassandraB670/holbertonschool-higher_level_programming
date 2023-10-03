@@ -9,8 +9,8 @@ def add_tuple(tuple_a=(), tuple_b=()):
     else:
         completeTupleA = tuple_a
         completeTupleB = tuple_b
-    res=[]
+    res = []
     for index in range(0, len(tuple_a)):
         res.append(completeTupleA[index]+completeTupleB[index])
-    res=tuple(res)
+    res = tuple(res)
     return res
