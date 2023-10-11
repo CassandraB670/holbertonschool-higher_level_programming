@@ -1,78 +1,97 @@
 #!/usr/bin/python3
-
-"""class Square that defines a square"""
+"""Defines a class Square"""
 
 
 class Square:
-    """Empty class Square that defines a square with size."""
+    """
+    Class that defines properties of square by: (based on 5-square.py).
+
+    Attributes:
+        size: size of a square (1 side).
+    """
     def __init__(self, size=0, position=(0, 0)):
-        """Instantiate a square with size
+        """
+        Creates new instances of square.
 
         Args:
-            __size (int): size of the square
-            __position (tuple): position of the square
+            __size (int): size of the square (1 side).
+            __position (tuple): position of the square.
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
-        """returns the current square area"""
+        """
+        Calculates the area of square.
+
+        Returns: the current square area.
+        """
         return self.__size ** 2
 
     @property
     def size(self):
-        """return size of the square"""
+        """
+        Returns the size of a square
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Set the size of the square
+        """
+        Property setter for size.
 
         Args:
-            value (int): size of the square
+            value (int): size of a square (1 side).
 
         Raises:
-            TypeError: if value isn't an integer
-            ValueError: if value is < 0
+            TypeError: size must be an integer.
+            ValueError: size must be >= 0.
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     @property
     def position(self):
-        """ return position of the square"""
+        """
+        Returns the position of the square
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
-        """Set the square position
+        """
+        Property setter for position.
 
         Args:
-            value (int): position of the square
+            value (tuple): position of the square.
 
         Raises:
-            TypeError: if value isn't a tuple of 2 integers
+            TypeError: position must be a tuple of 2 positive integers
         """
-        if (
-            not isinstance(value, tuple)
-            or len(value) != 2
-            or not isinstance(value[0], int)
-            or not isinstance(value[1], int)
-            or value[0] < 0 or value[1] < 0
-        ):
+        if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if not isinstance(value[0], int) or not isinstance(value[1], int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def my_print(self):
-        """Print the square with character # in stdout"""
+        """
+        prints in stdout the square with the character #
+        """
+
         if self.__size == 0:
-            print("")
-            return
-        [print("") for i in range(self.__position[1])]
-        for i in range(self.__size):
-            [print(" ", end="") for i in range(self.__position[0])]
-            [print("#", end="") for i in range(self.__size)]
-            print("")
+            print()
+        else:
+            for j in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                for k in range(self.__position[0]):
+                    print(" ",  end="")
+                print("#" * (self.__size))
