@@ -54,6 +54,7 @@ class Rectangle:
             TypeError: if value isn't an integer
             ValueError: if value is < 0
         """
+
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
