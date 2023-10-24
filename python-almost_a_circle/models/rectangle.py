@@ -101,7 +101,7 @@ class Rectangle(Base):
         """_summary_"""
         return self.__y
 
-    @x.setter
+    @y.setter
     def y(self, value):
         """Set the height of the rectangle
 
@@ -126,11 +126,10 @@ class Rectangle(Base):
 
     def display(self):
         """print the Rectangle instance with # in stdout"""
-        rectangle = self.y * "\n"
-        for index in range(self.height):
-            rectangle += (" " * self.x)
-            rectangle += ("#" * self.width) + "\n"
-        print(rectangle)
+        for _ in range(self.y):
+            print()
+        for _ in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """print representation str of the Rectangle"""
