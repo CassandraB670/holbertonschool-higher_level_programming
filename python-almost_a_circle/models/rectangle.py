@@ -42,7 +42,7 @@ class Rectangle(Base):
 
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        if value < 0:
+        if value <= 0:
             raise ValueError("width must be > 0")
         else:
             self.__width = value
@@ -67,7 +67,7 @@ class Rectangle(Base):
 
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        if value < 0:
+        if value <= 0:
             raise ValueError("height must be > 0")
         else:
             self.__height = value
@@ -119,3 +119,22 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = value
+
+    def area(self):
+        """area of the Rectangle"""
+        return self.width * self.height
+
+    def display(self):
+        """print the Rectangle instance with # in stdout"""
+        if self.height == 0 or self.width == 0:
+            print()
+        else:
+            for _ in range(self.y):
+                print()
+            for _ in range(self.height):
+                print(" " * self.x + "#" * self.width)
+
+    def __str__(self):
+        """print representation str of the Rectangle"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height)
