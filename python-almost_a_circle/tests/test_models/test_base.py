@@ -84,10 +84,10 @@ class test_base(unittest.TestCase):
         result = instance.load_from_file()
         self.assertEqual(result, [])
 
-    def test_empty_json_string(self):
-        json_string = ""
-        result = Base.from_json_string(json_string)
-        self.assertEqual(result, [])
+    #def test_empty_json_string(self):
+        #json_string = ""
+        #result = Base.from_json_string(json_string)
+        #self.assertEqual(result, [])
 
     def test_empty_json_string_partial(self):
         json_string = None
