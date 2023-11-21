@@ -89,3 +89,12 @@ Write a script that creates a table second_table in the database hbtn_0c_0 in yo
         id = 3, name = “Bob”, score = 14
         id = 4, name = “George”, score = 8
 
+Task 10 - List by best
+    File 10-top_score.sql
+
+Write a script that lists all records of the table second_table of the database hbtn_0c_0 in your MySQL server.
+
+    Results should display both the score and the name (in this order)
+    Records should be ordered by score (top first)
+    The database name will be passed as an argument of the mysql command
+
