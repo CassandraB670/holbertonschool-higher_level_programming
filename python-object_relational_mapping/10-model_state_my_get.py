@@ -10,7 +10,7 @@ if __name__ == "__main__":
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     db_name = sys.argv[3]
-    state_name_to_search = sys.argv[4]
+    state_name = sys.argv[4]
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
         mysql_username,
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    qr = session.query(State).filter(State.name == state_name_to_search).first()
+    qr = session.query(State).filter(State.name == state_name).first()
 
     session.close()
 
